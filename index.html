@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student GPA Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        table,
+        th,
+        tr,
+        td {
+            border-collapse: collapse;
+            border: 1px solid #ffffff;
+            padding: 8px;
+        }
+
+        .line {
+            border: 1px solid #ffffff;
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+
+        .horizontal-table {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .horizontal-table td {
+            white-space: nowrap;
+        }
+
+        h4 {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body x-data="App()" x-init="getYears()">
+    <div class="container">
+        <header class="section">
+            <h1 style="color: #1e293b; font-size: 2rem; margin-bottom: 1rem;">Student GPA Portal</h1>
+            <p style="color: #64748b;">Select the academic details to view student performance</p>
+        </header>
+
+        <!-- Year Selection -->
+        <div class="section" x-show="years.length > 0">
+            <h4>Select Year</h4>
+            <table class="horizontal-table">
+                <tr>
+                    <template x-for="year in years" :key="year.year">
+                        <td>
+                            <a href="#" x-text="year.year" @click="getSemesters(`${year.year}`)"></a>
+                        </td>
+                    </template>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Semester Selection -->
+        <div class="section" x-show="semesters.length > 0">
+            <h4>Select Semester</h4>
+            <table class="horizontal-table">
+                <tr>
+                    <template x-for="semester in semesters" :key="semester.semester">
+                        <td>
+                            <a href="#" x-text="semester.semester" @click="getBatch(`${semester.semester}`)"></a>
+                        </td>
+                    </template>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Batch Selection -->
+        <div class="section" x-show="Batch.length > 0">
+            <h4>Select Batch</h4>
+            <table class="horizontal-table">
+                <tr>
+                    <template x-for="batchItem in Batch" :key="batchItem.class">
+                        <td>
+                            <a href="#" x-text="batchItem.class" @click="getGPA(`${batchItem.class}`)"></a>
+                        </td>
+                    </template>
+                </tr>
+            </table>
+        </div>
+
+        <!-- GPA Display -->
+        <div class="section" x-show="gpa.length > 0">
+            <h4>Batch Performance</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Registration No</th>
+                        <th>Student Name</th>
+                        <th>GPA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template x-for="student in gpa" :key="student.regno">
+                        <tr>
+                            <td x-text="student.regno"></td>
+                            <td x-text="student.name"></td>
+                            <td x-text="student.cgpa"></td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

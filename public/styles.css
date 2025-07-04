@@ -1,0 +1,297 @@
+/* Modern CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: #1a1a1a;
+    background: linear-gradient(135deg, #f6f8fc 0%, #f1f5f9 100%);
+    min-height: 100vh;
+    padding: 2rem;
+    overflow-y: auto;
+    position: relative;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    overflow: visible;
+}
+
+/* Section Styling */
+.section {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow: visible;
+}
+
+.section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Headers */
+h1 {
+    color: #1e293b;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+}
+
+h4 {
+    color: #0f172a;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    font-family: 'Inter', sans-serif;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: #3b82f6;
+    border-radius: 2px;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 1rem 0;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th {
+    background: linear-gradient(to right, #f8fafc, #f1f5f9);
+    color: #0f172a;
+    font-weight: 600;
+    text-align: left;
+    padding: 1rem 1.5rem;
+    border-bottom: 2px solid #e2e8f0;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+    color: #475569;
+    font-size: 0.95rem;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover {
+    background-color: #f8fafc;
+}
+
+/* Links */
+a {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    display: inline-block;
+    border: 1px solid transparent;
+}
+
+a:hover {
+    color: #2563eb;
+    background-color: #eff6ff;
+    border-color: #dbeafe;
+    transform: translateY(-1px);
+}
+
+/* Horizontal Table */
+.horizontal-table {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+}
+
+.horizontal-table td {
+    white-space: nowrap;
+    border: none;
+    padding: 0;
+}
+
+.horizontal-table a {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    color: #475569;
+    font-size: 0.95rem;
+}
+
+.horizontal-table a:hover {
+    background: #eff6ff;
+    border-color: #dbeafe;
+    color: #3b82f6;
+}
+
+/* GPA Table Specific */
+.section:last-child table {
+    border: 2px solid #e2e8f0;
+}
+
+.section:last-child th {
+    background: linear-gradient(to right, #3b82f6, #2563eb);
+    color: white;
+}
+
+.section:last-child td {
+    font-weight: 500;
+}
+
+/* Year Selection Specific Styles */
+.section:first-of-type {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    overflow: visible;
+}
+
+.section:first-of-type .horizontal-table {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0.5rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 #f1f5f9;
+}
+
+.section:first-of-type .horizontal-table::-webkit-scrollbar {
+    height: 6px;
+}
+
+.section:first-of-type .horizontal-table::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 3px;
+}
+
+.section:first-of-type .horizontal-table::-webkit-scrollbar-thumb {
+    background-color: #cbd5e1;
+    border-radius: 3px;
+}
+
+.section:first-of-type .horizontal-table td {
+    text-align: center;
+    flex: 0 0 auto;
+}
+
+.section:first-of-type .horizontal-table a {
+    min-width: 120px;
+    text-align: center;
+    background: white;
+    border: 2px solid #e2e8f0;
+    color: #475569;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 1rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    white-space: nowrap;
+}
+
+.section:first-of-type h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #1e293b;
+}
+
+.section:first-of-type h4::after {
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(to right, #3b82f6, #2563eb);
+}
+
+/* Responsive adjustments for year selection */
+@media (max-width: 768px) {
+    .section:first-of-type .horizontal-table {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 0.75rem;
+    }
+
+    .section:first-of-type .horizontal-table a {
+        padding: 0.75rem;
+        font-size: 1rem;
+    }
+
+    body {
+        padding: 1rem;
+    }
+
+    .section {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .horizontal-table {
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section {
+    animation: fadeIn 0.4s ease-out;
+}
+
+/* Header Section */
+header.section {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+header p {
+    color: #64748b;
+    font-size: 1.1rem;
+    max-width: 600px;
+} 
